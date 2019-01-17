@@ -1,0 +1,43 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+  thymeleaf:
+    cache: false
+
+  mvc:
+    static-path-pattern: /resources/**
+
+  resources:
+    add-mappings: true
+
+  servlet:
+    multipart:
+      max-file-size: 128KB
+      max-request-size: 128KB
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_LOGIN_CLIENT_ID}
+            client-secret: ${GOOGLE_LOGIN_CLIENT_SECRET}
+
+
+
+storage:
+  google-drive:
+    client-id: ${GOOGLE_DRIVE_CLIENT_ID}
+    client-secret: ${GOOGLE_DRIVE_CLIENT_SECRET}
+
+  dropbox:
+    app-key: ${DROPBOX_APP_KEY}
+    app-secret: ${DROPBOX_APP_SECRET}
+
+trustedx:
+  client-id: ${TRUSTEDX_CLIENT_ID}
+  client-secret: ${TRUSTEDX_CLIENT_SECRET}
+
+server:
+  use-forward-headers: true

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}"
+>
+<th:block layout:fragment="theme">
+    <div class="page-wrapper">
+        <aside class="menu-sidebar d-none d-lg-block">
+        <div class="logo">
+            <a href="#">
+                <img th:src="@{/images/icon/logo_cloud.png}" />
+            </a>
+        </div>
+        <div class="menu-sidebar__content js-scrollbar1">
+            <nav class="navbar-sidebar">
+                <ul class="list-unstyled navbar__list">
+                    <li>
+                        <a th:href="@{/}">
+                            <i class="fas fa-home"></i>Home</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/files}">
+                            <i class="fas fa-file"></i>Files</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/identities}">
+                            <i class="fas fa-lock"></i>Identities</a>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="page-container">
+        <header class="header-desktop">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="header-wrap">
+                        <form class="form-header" action="" method="POST">
+                        </form>
+                        <div class="header-button">
+                            <div class="account-wrap">
+                                <div class="account-item clearfix js-item-menu">
+                                    <div class="image">
+                                        <img th:src="${#authentication.principal.picture}" />
+                                    </div>
+                                    <div class="content">
+                                        <a class="js-acc-btn" href="#" th:text="${#authentication.principal.fullName}"></a>
+                                    </div>
+                                    <div class="account-dropdown js-dropdown">
+                                        <div class="info clearfix">
+                                            <div class="image">
+                                                <a href="#">
+                                                    <img th:src="${#authentication.principal.picture}" />
+                                                </a>
+                                            </div>
+                                            <div class="content">
+                                                <h5 class="name">
+                                                    <a href="#" th:text="${#authentication.principal.fullName}"></a>
+                                                </h5>
+                                                <span class="email" th:text="${#authentication.principal.email}"></span>
+                                            </div>
+                                        </div>
+                                        <div class="account-dropdown__footer">
+                                            <a th:href="@{/logout}">
+                                                <i class="zmdi zmdi-power"></i>Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT-->
+        <div class="main-content">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <th:block layout:fragment="content"></th:block>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="copyright">
+                                <p>Copyright © 2018 Joan Font. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</th:block>

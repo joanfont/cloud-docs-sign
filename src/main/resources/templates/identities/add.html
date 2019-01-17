@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{theme}"
+>
+    <div layout:fragment="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Add Identity</strong> TrustedX
+                </div>
+                <form action="/identities/add" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <div class="card-body card-block">
+                        <div class="form-group">
+                            <label for="file-input" class="form-control-label">PKCS#12</label>
+                            <input type="file" id="file-input" name="file" class="form-control-file" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password-input" class="form-control-label">Password</label>
+                            <input type="password" id="password-input" name="password" placeholder="Password" class="form-control" />
+                            <small class="form-text text-muted">PKCS#12 password</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="role-input" class="form-control-label">Role</label>
+                            <select name="role" id="role-input" class="form-control">
+                                <option th:each="role : ${roles}" th:text="${role.toLabel()}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

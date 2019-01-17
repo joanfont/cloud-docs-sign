@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}"
+>
+<th:block layout:fragment="theme">
+    <div class="login-wrap">
+        <div class="login-content">
+            <div class="login-logo">
+                <a href="#">
+                    <img th:src="@{/images/icon/logo_cloud.png}" alt="CoolAdmin">
+                </a>
+                <div class="m-t-20">
+                    <a class="btn btn-danger btn-lg btn-block text-white m-b-20" th:href="@{oauth2/authorization/google}"><i class="zmdi zmdi-google"></i>&nbsp; Login with Google</a>
+                </div>
+        </div>
+    </div>
+</th:block>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{theme}"
+>
+    <div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1"><i class="fas fa-lock"></i>&nbsp;identities</h2>
+                <a class="au-btn au-btn-icon au-btn--blue" href="/identities/add">
+                    <i class="zmdi zmdi-plus"></i>add identity</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row m-t-25">
+        <div class="col-lg-12">
+            <div class="table-responsive table--no-card m-b-30">
+                <table class="table table-borderless table-striped table-earning">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>role</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="identity : ${identities}">
+                        <td th:text="${identity.id}">id</td>
+                        <td th:text="${identity.getRole()}">role</td>
+                        <td>
+                            <a class="btn btn-secondary btn-sm" th:href="@{/identities/{id}/delete(id=${identity.id})}">
+                                <i class="zmdi zmdi-delete"></i>&nbsp; Delete
+                            </a>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{theme}"
+>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1"><i class="zmdi" th:classappend="${icon}"></i>&nbsp;files</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row m-t-25">
+        <div class="col-lg-12">
+            <div class="table-responsive table--no-card m-b-30">
+                <table class="table table-borderless table-striped table-earning">
+                    <thead>
+                        <tr>
+                            <th>file</th>
+                            <th>mimeType</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="file : ${files}">
+                            <td th:text="${file.name}">file</td>
+                            <td th:text="${file.mimeType}">mimeType</td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" th:href="@{/files/{id}/download(id=${file.id})}" target="_blank">
+                                    <i class="zmdi zmdi-cloud-download"></i>&nbsp; View
+                                </a>
+                                <a class="btn btn-primary btn-sm" th:href="@{/files/{id}/sign(id=${file.id})}">
+                                    <i class="zmdi zmdi-account"></i>&nbsp; Sign
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

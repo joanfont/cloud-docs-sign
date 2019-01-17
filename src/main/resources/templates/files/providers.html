@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{theme}"
+>
+    <div layout:fragment="content">
+        <div class="login-content">
+            <h3 class="text-center">Choose one provider</h3>
+            <div class="login-form">
+                <a th:href="@{/files/google/login}" class="btn btn-danger btn-lg btn-block text-white m-b-20"><i class="zmdi zmdi-google-drive"></i> Google Drive</a>
+                <a th:href="@{/files/dropbox/login}" class="btn btn-primary btn-lg btn-block text-white m-b-20"><i class="zmdi zmdi-dropbox"></i> Dropbox</a>
+            </div>
+        </div>
+    </div>
+</html>
